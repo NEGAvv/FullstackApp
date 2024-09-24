@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $advertisment['title'] }}</title>
+    <title>@yield('title', 'Default Title')</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -20,18 +20,14 @@
                 <a href="/about" class="text-white hover:text-yellow-300">About</a>
                 <a href="/services" class="text-white hover:text-yellow-300">Services</a>
                 <a href="/contact" class="text-white hover:text-yellow-300">Contact</a>
+                <a href="/advertisements" class="text-white hover:text-yellow-300">Advertisements</a> 
             </div>
+
         </div>
     </nav>
 
     <main class="flex flex-col items-center justify-center min-h-screen pt-16">
-    <div class="max-w-md w-full bg-white shadow-md rounded-lg p-6">
-        <h1 class="text-xl font-bold mb-4 head-text">{{ $advertisment['title'] }}</h1>
-        <p class="text-gray-700 mb-2"><strong>Category:</strong> {{ $advertisment['category'] }}</p>
-        <p class="text-gray-700 mb-4">{{ $advertisment['description'] }}</p>
-        <p class="text-sm text-gray-500">Posted by User ID: {{ $advertisment['user_id'] }}</p>
-    </div>
-
+        @yield('content')
     </main>
 
 </body>
