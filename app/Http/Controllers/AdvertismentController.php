@@ -2,58 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Advertisement; 
 use Illuminate\Http\Request;
 
 class AdvertismentController extends Controller
 { 
     public function store(Request $request)
     {
-        DB::table('advertisements')->insert([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'category' => $request->input('category'),
-            'user_id' => $request->input('user_id'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        Advertisement::create($request->only(['title', 'description', 'category', 'user_id']));
 
         return redirect()->route('advertisements.index'); 
     }
 
     public function index()
     {
-        $advertisements = DB::table('advertisements')->get();
+        // $advertisements = Advertisement::all();
+        $advertisements = Advertisement::all()->unique("title");
         return view('advertisements.index', ['advertisements' => $advertisements]);
     }
 
     public function update(Request $request, $id)
     {
-        DB::table('advertisements')
-            ->where('id', $id)
-            ->update([
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'updated_at' => now(),
-            ]);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $advertisement = Advertisement::findOrFail($id);
+        $advertisement->update($request->only(['title', 'description']));
 
         return redirect()->route('advertisements.index'); 
     }
 
     public function destroy($id)
     {
-        DB::table('advertisements')->where('id', $id)->delete();
+        $advertisement = Advertisement::findOrFail($id);
+        $advertisement->delete();
         return redirect()->route('advertisements.index'); 
     }
 
     public function show($id)
     {
-        $advertisement = DB::table('advertisements')->where('id', $id)->first();
-
-        if (!$advertisement) {
-            abort(404, 'Advertisement not found');
-        }
-
+        $advertisement = Advertisement::findOrFail($id);
         return view('advertisements.show', ['advertisement' => $advertisement]); 
     }
 
@@ -64,12 +54,7 @@ class AdvertismentController extends Controller
 
     public function edit($id)
     {
-        $advertisement = DB::table('advertisements')->where('id', $id)->first();
-
-        if (!$advertisement) {
-            abort(404, 'Advertisement not found');
-        }
-
+        $advertisement = Advertisement::findOrFail($id);
         return view('advertisements.edit', ['advertisement' => $advertisement]); 
     }
 }
