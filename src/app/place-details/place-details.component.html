@@ -1,0 +1,8 @@
+<div *ngIf="place">
+  <p><strong>Назва:</strong> {{ place.name }}</p>
+  <p><strong>Опис:</strong> {{ place.description }}</p>
+  <p><strong>Розташування:</strong> {{ place.location }}</p>
+</div>
+<div *ngIf="!place">
+  <p>Будь ласка, виберіть місце, щоб побачити деталі.</p>
+</div>

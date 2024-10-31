@@ -1,0 +1,31 @@
+  <div class="row flex-nowrap">
+      <div class="col-auto px-0">
+          <div id="sidebar" class="collapse collapse-horizontal show border-end">
+              <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start">
+                  <a routerLink="/home" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Home</span></a>
+                  <a routerLink="/places" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Places</span></a>
+              </div>
+          </div>
+      </div>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top">
+          <div class="container-fluid">
+              <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="btn btn-outline-light ">
+                  <i class="bi bi-list bi-lg "></i> Menu
+              </a>
+              <div class="mx-auto">
+                  <span class="navbar-brand mb-0 h1">ToTravel</span>
+              </div>
+              <div>
+                  <a href="#" class="btn btn-light me-2">Sign In</a>
+                  <a href="#" class="btn btn-light">Sign Up</a>
+              </div>
+          </div>
+      </nav>
+      <!-- Navbar -->
+
+      <main class="col ps-md-2 pt-2 main-content">
+          <router-outlet></router-outlet> 
+      </main>
+  </div>
+
