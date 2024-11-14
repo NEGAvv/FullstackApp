@@ -25,8 +25,8 @@
           </div>
       </nav>
 
-      <main class="col ps-md-2 pt-2 main-content">
-          <router-outlet></router-outlet> 
+      <main [@routeTransition]="prepareRoute(outlet)"class="col ps-md-2 pt-2 main-content">
+        <router-outlet #outlet="outlet"/> 
       </main>
   </div>
 

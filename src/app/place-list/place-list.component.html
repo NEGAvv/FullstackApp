@@ -1,26 +1,21 @@
-<div class="container py-6">
+<div class="container py-6" @routeTransition>
   <h2 class="text-center mb-5">Place List</h2>
   <div class="row" style="min-height: 80vh;">
     <div class="col-md-4 d-flex flex-column" style="overflow-y: auto;">
       <ul class="list-group flex-grow-1">
         <li *ngFor="let place of places" 
-            (click)="selectPlace(place)" 
             class="list-group-item d-flex align-items-center mb-3 rounded-lg shadow-sm"
             style="cursor: pointer; transition: all 0.3s ease; background-color: #f8f9fa;">
           <h5 class="m-0" style="font-size: 1.2rem; font-weight: 600;">{{ place.name }}</h5>
+          <a type="button" class="link-secondary link-underline-dark link-offset-1 link-underline-opacity-0 ms-auto" (click)="selectPlace(place)">Details</a>
         </li>
       </ul>
     </div>
 
     <div class="col-md-8 d-flex flex-column">
       <div class="sticky-top" style="top: 66px;">
-        <div class="card shadow-lg border-0 rounded-3">
-          <div class="card-header bg-primary text-white">
-            <h4 class="m-0">Details of {{ selectedPlace?.name }}</h4>
-          </div>
-          <div class="card-body">
-            <app-place-details [place]="selectedPlace"></app-place-details>
-          </div>
+        <div class="card shadow-lg border-0 rounded-3" [@openClose]="selectedPlace?.isOpen ? 'open' : 'closed'"  style="overflow: hidden;">
+              <app-place-details [place]="selectedPlace"></app-place-details>
         </div>
       </div>
     </div>
