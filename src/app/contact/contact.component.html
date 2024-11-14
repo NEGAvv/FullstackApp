@@ -1,0 +1,49 @@
+<h1 class="text-center mb-4">Our Contacts</h1>
+
+<div class="container">
+    <div class="row text-center ">
+        <div class="col-md-4 mb-3 ">
+            <div class="list-group-item py-2 bg-light">
+                <h5>John Doe</h5>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: johndoe&#64;example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="list-group-item py-2 bg-light">
+                <h5>Jane Smith</h5>
+                <p>Phone: (555) 234-5678</p>
+                <p>Email: janesmith&#64;example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="list-group-item py-2 bg-light">
+                <h5>Mike Johnson</h5>
+                <p>Phone: (555) 987-6541</p>
+                <p>Email: mikejohnsonh&#64;example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <form (submit)="submitForm(name.value, email.value, message.value)" class="p-2 mx-auto" style="max-width: 500px;">
+        <h2 class="text-center mb-2">Write Us</h2>
+        <div class="mb-1">
+            <label for="name" class="form-label">Name</label>
+            <input #name type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-1">
+            <label for="email" class="form-label">Email</label>
+            <input #email type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-1">
+            <label for="message" class="form-label">Message</label>
+            <textarea #message class="form-control" id="message" rows="2" placeholder="Write your message here" required></textarea>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+        </div>
+    </form>
+    
+  
+    
+</div>

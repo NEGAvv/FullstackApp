@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-
-interface Place {
-  name: string;
-  description: string;
-  location: string;
-}
+import { Place } from '../place-list/place-list.component';
 
 @Component({
   selector: 'app-place-details',

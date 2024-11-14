@@ -1,12 +1,28 @@
-<h2>Популярні туристичні місця</h2>
-<ul>
-  <li *ngFor="let place of places" (click)="selectPlace(place)" style="cursor: pointer; list-style-type: none;">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">{{ place.name }}</h4>
+<div class="container py-6">
+  <h2 class="text-center mb-5">Place List</h2>
+  <div class="row" style="min-height: 80vh;">
+    <div class="col-md-4 d-flex flex-column" style="overflow-y: auto;">
+      <ul class="list-group flex-grow-1">
+        <li *ngFor="let place of places" 
+            (click)="selectPlace(place)" 
+            class="list-group-item d-flex align-items-center mb-3 rounded-lg shadow-sm"
+            style="cursor: pointer; transition: all 0.3s ease; background-color: #f8f9fa;">
+          <h5 class="m-0" style="font-size: 1.2rem; font-weight: 600;">{{ place.name }}</h5>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8 d-flex flex-column">
+      <div class="sticky-top" style="top: 66px;">
+        <div class="card shadow-lg border-0 rounded-3">
+          <div class="card-header bg-primary text-white">
+            <h4 class="m-0">Details of {{ selectedPlace?.name }}</h4>
+          </div>
+          <div class="card-body">
+            <app-place-details [place]="selectedPlace"></app-place-details>
+          </div>
+        </div>
       </div>
     </div>
-  </li>
-</ul>
-
-<app-place-details *ngIf="selectedPlace" [place]="selectedPlace"></app-place-details>
+  </div>
+</div>
