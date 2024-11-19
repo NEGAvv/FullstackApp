@@ -1,0 +1,71 @@
+{
+    "PLACES": {
+    "PAGE_TITLE": "Place list",
+      "Central Park": {
+      "NAME": "Central Park",
+      "DESCRIPTION": "A large public park in NYC.",
+      "LOCATION": "New York"
+    },
+    "Eiffel Tower": {
+      "NAME": "Eiffel Tower",
+      "DESCRIPTION": "A famous landmark in Paris.",
+      "LOCATION": "Paris"
+    },
+    "Great Wall of China": {
+      "NAME": "Great Wall of China",
+      "DESCRIPTION": "Historic fortification in China.",
+      "LOCATION": "China"
+    },
+    "Colosseum": {
+      "NAME": "Colosseum",
+      "DESCRIPTION": "An ancient amphitheatre in Rome.",
+      "LOCATION": "Rome"
+    },
+    "Taj Mahal": {
+      "NAME": "Taj Mahal",
+      "DESCRIPTION": "A white marble mausoleum, a symbol of love.",
+      "LOCATION": "Agra, India"
+    },
+    "Machu Picchu": {
+      "NAME": "Machu Picchu",
+      "DESCRIPTION": "Ancient Incan city located in the Andes Mountains.",
+      "LOCATION": "Peru"
+    },
+    "Christ the Redeemer": {
+      "NAME": "Christ the Redeemer",
+      "DESCRIPTION": "A giant statue of Jesus Christ on Corcovado mountain.",
+      "LOCATION": "Rio de Janeiro, Brazil"
+    },
+    "Sydney Opera House": {
+      "NAME": "Sydney Opera House",
+      "DESCRIPTION": "A famous performing arts venue with a unique sail-like design.",
+      "LOCATION": "Sydney, Australia"
+    },
+    "Pyramids of Giza": {
+      "NAME": "Pyramids of Giza",
+      "DESCRIPTION": "Ancient Egyptian pyramids, one of the Seven Wonders of the Ancient World.",
+      "LOCATION": "Giza, Egypt"
+    },
+    "Santorini": {
+      "NAME": "Santorini",
+      "DESCRIPTION": "A stunning island known for its white-washed buildings and blue-domed churches.",
+      "LOCATION": "Greece"
+    }
+    }, 
+  "DETAILS": {
+    "TITLE": "Details of place",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "LOCATION": "Location"
+  },
+  "CLICK_FOR_DETAILS": "Click to see details.",
+  "DETAILS_BUTTON": "Details",
+  "SIGN_IN":"Sign in",
+  "MENU": {
+        "TITLE": "Menu",
+        "HOME": "Home",
+        "ABOUT": "About",
+        "PLACES":"Places",
+        "CONTACTS": "Contacts"
+  }
+}

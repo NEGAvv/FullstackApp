@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PlaceDetailsComponent } from '../place-details/place-details.component';
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 import { routeTransitionAnimations } from '../../animations/route-transition.animation';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 export interface Place {
   id: number;
@@ -15,7 +16,7 @@ export interface Place {
 @Component({
   selector: 'app-place-list',
   standalone: true,
-  imports: [CommonModule, PlaceDetailsComponent],
+  imports: [CommonModule, PlaceDetailsComponent, TranslateModule],
   templateUrl: './place-list.component.html',
   styleUrls: ['./place-list.component.css'],
   animations: [
@@ -49,6 +50,7 @@ export interface Place {
   ]
 })
 export class PlaceListComponent {
+
   places: Place[] = [
     { id: 1, name: 'Central Park', location: 'New York', description: 'A large public park in NYC.', isOpen: false },
     { id: 2, name: 'Eiffel Tower', location: 'Paris', description: 'A famous landmark in Paris.', isOpen: false },
@@ -60,16 +62,6 @@ export class PlaceListComponent {
     { id: 8, name: 'Sydney Opera House', location: 'Sydney, Australia', description: 'A famous performing arts venue with a unique sail-like design.', isOpen: false },
     { id: 9, name: 'Pyramids of Giza', location: 'Giza, Egypt', description: 'Ancient Egyptian pyramids, one of the Seven Wonders of the Ancient World.', isOpen: false },
     { id: 10, name: 'Santorini', location: 'Greece', description: 'A stunning island known for its white-washed buildings and blue-domed churches.', isOpen: false },
-    { id: 11, name: 'Mount Fuji', location: 'Japan', description: 'An iconic, snow-capped volcano and Japan’s tallest peak.', isOpen: false },
-    { id: 12, name: 'Stonehenge', location: 'Wiltshire, England', description: 'A prehistoric monument consisting of a ring of standing stones.', isOpen: false },
-    { id: 13, name: 'Grand Canyon', location: 'Arizona, USA', description: 'A massive canyon carved by the Colorado River.', isOpen: false },
-    { id: 14, name: 'Angkor Wat', location: 'Siem Reap, Cambodia', description: 'A massive temple complex and the largest religious monument in the world.', isOpen: false },
-    { id: 15, name: 'Burj Khalifa', location: 'Dubai, UAE', description: 'The world’s tallest building with breathtaking views of the city.', isOpen: false },
-    { id: 16, name: 'Yellowstone National Park', location: 'USA', description: 'The first national park in the world, home to diverse wildlife and geothermal features.', isOpen: false },
-    { id: 17, name: 'The Louvre', location: 'Paris, France', description: 'The world’s largest art museum and a historic monument in Paris.', isOpen: false },
-    { id: 18, name: 'Niagara Falls', location: 'USA/Canada', description: 'Massive waterfalls located on the border between the United States and Canada.', isOpen: false },
-    { id: 19, name: 'Acropolis of Athens', location: 'Athens, Greece', description: 'An ancient citadel that contains several historic structures, including the Parthenon.', isOpen: false },
-    { id: 20, name: 'Grand Palace', location: 'Bangkok, Thailand', description: 'A stunning complex of buildings that served as the royal residence.', isOpen: false }
   ];
 
   selectedPlace?: Place;
@@ -88,4 +80,5 @@ export class PlaceListComponent {
       place.isOpen = true;
     }
   }
+
 }

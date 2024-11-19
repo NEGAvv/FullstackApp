@@ -1,13 +1,13 @@
 <div class="container py-6" @routeTransition>
-  <h2 class="text-center mb-5">Place List</h2>
+  <h2 class="text-center mb-5">{{'PLACES.PAGE_TITLE' | translate}}</h2>
   <div class="row" style="min-height: 80vh;">
     <div class="col-md-4 d-flex flex-column" style="overflow-y: auto;">
       <ul class="list-group flex-grow-1">
         <li *ngFor="let place of places" 
             class="list-group-item d-flex align-items-center mb-3 rounded-lg shadow-sm"
             style="cursor: pointer; transition: all 0.3s ease; background-color: #f8f9fa;">
-          <h5 class="m-0" style="font-size: 1.2rem; font-weight: 600;">{{ place.name }}</h5>
-          <a type="button" class="link-secondary link-underline-dark link-offset-1 link-underline-opacity-0 ms-auto" (click)="selectPlace(place)">Details</a>
+          <h5 class="m-0" style="font-size: 1.2rem; font-weight: 600;">{{ 'PLACES.' + place.name + '.NAME' | translate }}</h5>
+          <a type="button" class="link-secondary link-underline-dark link-offset-1 link-underline-opacity-0 ms-auto" (click)="selectPlace(place)">{{'DETAILS_BUTTON' | translate}}</a>
         </li>
       </ul>
     </div>

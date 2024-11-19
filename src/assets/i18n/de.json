@@ -1,0 +1,72 @@
+{
+    "PLACES": {
+      "PAGE_TITLE": "Liste der Orte",
+      "Central Park": {
+        "NAME": "Central Park",
+        "DESCRIPTION": "Ein großer öffentlicher Park in NYC.",
+        "LOCATION": "New York"
+      },
+      "Eiffel Tower": {
+        "NAME": "Eiffelturm",
+        "DESCRIPTION": "Ein berühmtes Wahrzeichen in Paris.",
+        "LOCATION": "Paris"
+      },
+      "Great Wall of China": {
+        "NAME": "Chinesische Mauer",
+        "DESCRIPTION": "Historische Befestigungsanlage in China.",
+        "LOCATION": "China"
+      },
+      "Colosseum": {
+        "NAME": "Kolosseum",
+        "DESCRIPTION": "Ein antikes Amphitheater in Rom.",
+        "LOCATION": "Rom"
+      },
+      "Taj Mahal": {
+        "NAME": "Taj Mahal",
+        "DESCRIPTION": "Ein weißes Marmormausoleum, ein Symbol der Liebe.",
+        "LOCATION": "Agra, Indien"
+      },
+      "Machu Picchu": {
+        "NAME": "Machu Picchu",
+        "DESCRIPTION": "Eine alte Inka-Stadt in den Anden.",
+        "LOCATION": "Peru"
+      },
+      "Christ the Redeemer": {
+        "NAME": "Christus der Erlöser",
+        "DESCRIPTION": "Eine riesige Statue von Jesus Christus auf dem Berg Corcovado.",
+        "LOCATION": "Rio de Janeiro, Brasilien"
+      },
+      "Sydney Opera House": {
+        "NAME": "Opernhaus von Sydney",
+        "DESCRIPTION": "Ein berühmtes Kulturzentrum mit einzigartigem Segeldesign.",
+        "LOCATION": "Sydney, Australien"
+      },
+      "Pyramids of Giza": {
+        "NAME": "Pyramiden von Gizeh",
+        "DESCRIPTION": "Alte ägyptische Pyramiden, eines der sieben Weltwunder der Antike.",
+        "LOCATION": "Gizeh, Ägypten"
+      },
+      "Santorini": {
+        "NAME": "Santorini",
+        "DESCRIPTION": "Eine atemberaubende Insel, bekannt für ihre weißen Gebäude und blau gekuppelten Kirchen.",
+        "LOCATION": "Griechenland"
+      }
+    },
+    "DETAILS": {
+      "TITLE": "Details zum Ort",
+      "NAME": "Name",
+      "DESCRIPTION": "Beschreibung",
+      "LOCATION": "Standort"
+    },
+    "CLICK_FOR_DETAILS": "Klicken Sie, um Details zu sehen.",
+    "DETAILS_BUTTON": "Details",
+    "SIGN_IN": "Anmelden",
+    "MENU": {
+      "TITLE": "Menü",
+      "HOME": "Startseite",
+      "ABOUT": "Über uns",
+      "PLACES": "Orte",
+      "CONTACTS": "Kontakte"
+    }
+  }
+  

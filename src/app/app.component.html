@@ -2,10 +2,10 @@
       <div class="col-auto px-0">
           <div id="sidebar" class="collapse collapse-horizontal show border-end">
                 <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start ">
-                  <a routerLink="/home" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>Home</span></a>
-                  <a routerLink="/about" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>About</span></a>
-                  <a routerLink="/places" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Places</span></a>
-                  <a routerLink="/contacts" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>Contacts</span></a>
+                  <a routerLink="/home" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-bootstrap"></i> <span>{{'MENU.HOME' | translate}}</span></a>
+                  <a routerLink="/about" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>{{'MENU.ABOUT' | translate}}</span></a>
+                  <a routerLink="/places" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>{{'MENU.PLACES' | translate}}</span></a>
+                  <a routerLink="/contacts" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-film"></i> <span>{{'MENU.CONTACTS' | translate}}</span></a>
                 </div>
           </div>
       </div>
@@ -13,14 +13,30 @@
       <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top">
           <div class="container-fluid">
               <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="btn btn-outline-light ">
-                  <i class="bi bi-list bi-lg "></i> Menu
+                  <i class="bi bi-list bi-lg "></i> {{'MENU.TITLE' | translate}}
               </a>
               <div class="mx-auto">
-                  <span class="navbar-brand mb-0 fs-3">ToTravel</span>
+                  <span class="mx-auto navbar-brand mb-0 fs-3">ToTravel</span>
               </div>
               <div>
-                  <a routerLink="/login" class="btn btn-light me-2">Sign In</a>
+                  <a routerLink="/login" class="btn btn-light me-2">{{'SIGN_IN' | translate}}</a>
                   <!-- <a href="#" class="btn btn-light">Sign Up</a> -->
+                    <button 
+                      class="btn btn-primary me-2" 
+                      (click)="toggleLanguage('en')">
+                      Eng
+                    </button>
+                    <button 
+                      class="btn btn-warning me-2" 
+                      (click)="toggleLanguage('ua')">
+                      Укр
+                    </button>
+                    <button 
+                      class="btn btn-success" 
+                      (click)="toggleLanguage('de')">
+                      De
+                    </button>
+                  
               </div>
           </div>
       </nav>

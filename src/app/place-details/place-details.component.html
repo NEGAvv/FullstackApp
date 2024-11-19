@@ -1,13 +1,13 @@
 <div *ngIf="place" @routeTransition>
   <div class="card-header bg-primary text-white">
-    <h4 class="m-0">Details of {{ place.name }}</h4>
+    <h4 class="m-0">{{ 'DETAILS.TITLE' | translate }}</h4>
   </div>
   <div class="card-body">
-    <p ><strong>Name:</strong> {{ place.name }}</p>
-    <p><strong>Description:</strong> {{ place.description }}</p>
-    <p><strong>Location:</strong> {{ place.location }}</p>
+    <p><strong>{{ 'DETAILS.NAME' | translate }}:</strong> {{ 'PLACES.' + place.name + '.NAME' | translate }}</p>
+    <p><strong>{{ 'DETAILS.DESCRIPTION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.DESCRIPTION' | translate }}</p>
+    <p><strong>{{ 'DETAILS.LOCATION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.LOCATION' | translate }}</p>
   </div>
 </div>
 <div *ngIf="!place">
-  <p>Click to see details.</p>
+  <p>{{ 'CLICK_FOR_DETAILS' | translate }}</p>
 </div>
