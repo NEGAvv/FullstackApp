@@ -1,13 +1,26 @@
-<div *ngIf="place" @routeTransition>
-  <div class="card-header bg-primary text-white">
-    <h4 class="m-0">{{ 'DETAILS.TITLE' | translate }}</h4>
+<div class="col-md-12 d-flex flex-column">
+  <div class="sticky-top" style="top: 66px;">
+    <div class="card shadow-lg border-0 rounded-3" style="overflow: hidden;">
+      
+      <div *ngIf="place" @routeTransition>
+        <div class="card-header bg-primary text-white d-flex justify-content-between">
+          <h4 class="m-0">{{ 'DETAILS.TITLE' | translate }}</h4>
+          <button (click)="goBack()" class="btn btn-secondary">
+            Go back
+          </button>
+        </div>
+        <div class="card-body">
+          <p><strong>{{ 'DETAILS.NAME' | translate }}:</strong> {{ 'PLACES.' + place.name + '.NAME' | translate }}</p>
+          <p><strong>{{ 'DETAILS.DESCRIPTION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.DESCRIPTION' | translate }}</p>
+          <p><strong>{{ 'DETAILS.LOCATION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.LOCATION' | translate }}</p>
+        </div>
+      </div>
+      
+      <div *ngIf="!place" class="d-flex justify-content-between m-2">
+        <p>{{ 'CLICK_FOR_DETAILS' | translate }}</p>
+        <button (click)="goBack()" class="btn btn-secondary"> Go back</button>
+      </div>
+      
+    </div>
   </div>
-  <div class="card-body">
-    <p><strong>{{ 'DETAILS.NAME' | translate }}:</strong> {{ 'PLACES.' + place.name + '.NAME' | translate }}</p>
-    <p><strong>{{ 'DETAILS.DESCRIPTION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.DESCRIPTION' | translate }}</p>
-    <p><strong>{{ 'DETAILS.LOCATION' | translate }}:</strong> {{ 'PLACES.' + place.name + '.LOCATION' | translate }}</p>
-  </div>
-</div>
-<div *ngIf="!place">
-  <p>{{ 'CLICK_FOR_DETAILS' | translate }}</p>
 </div>

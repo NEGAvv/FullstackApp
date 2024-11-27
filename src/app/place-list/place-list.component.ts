@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlaceDetailsComponent } from '../place-details/place-details.component';
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 import { routeTransitionAnimations } from '../../animations/route-transition.animation';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../services/logger.service';
 import { PlaceHistoryService } from '../services/place-history.service';
+import { Router } from '@angular/router';
+import { PlacesService } from '../services/places.service';
 
 export interface Place {
   id: number;
@@ -51,30 +53,29 @@ export interface Place {
     ])
   ]
 })
-export class PlaceListComponent {
-
-  places: Place[] = [
-    { id: 1, name: 'Central Park', location: 'New York', description: 'A large public park in NYC.', isOpen: false },
-    { id: 2, name: 'Eiffel Tower', location: 'Paris', description: 'A famous landmark in Paris.', isOpen: false },
-    { id: 3, name: 'Great Wall of China', location: 'China', description: 'Historic fortification in China.', isOpen: false },
-    { id: 4, name: 'Colosseum', location: 'Rome', description: 'An ancient amphitheatre in Rome.', isOpen: false },
-    { id: 5, name: 'Taj Mahal', location: 'Agra, India', description: 'A white marble mausoleum, a symbol of love.', isOpen: false },
-    { id: 6, name: 'Machu Picchu', location: 'Peru', description: 'Ancient Incan city located in the Andes Mountains.', isOpen: false },
-    { id: 7, name: 'Christ the Redeemer', location: 'Rio de Janeiro, Brazil', description: 'A giant statue of Jesus Christ on Corcovado mountain.', isOpen: false },
-    { id: 8, name: 'Sydney Opera House', location: 'Sydney, Australia', description: 'A famous performing arts venue with a unique sail-like design.', isOpen: false },
-    { id: 9, name: 'Pyramids of Giza', location: 'Giza, Egypt', description: 'Ancient Egyptian pyramids, one of the Seven Wonders of the Ancient World.', isOpen: false },
-    { id: 10, name: 'Santorini', location: 'Greece', description: 'A stunning island known for its white-washed buildings and blue-domed churches.', isOpen: false },
-  ];
+export class PlaceListComponent implements OnInit {
+  places: any[] = [];
 
   constructor(
     private logger: LoggerService,
-    private placeHistoryService: PlaceHistoryService
+    private placeHistoryService: PlaceHistoryService,
+    private router: Router,
+    private placesService: PlacesService
   ) {}
+
+  ngOnInit(): void {
+    this.placesService.loadPlaces();
+
+    this.placesService.places$.subscribe(places => {
+      this.places = places;  
+    });
+  }
 
   selectedPlace?: Place;
 
   toggle(place: Place) {
     place.isOpen = !place.isOpen;
+    
     const action = place.isOpen ? 'Opened' : 'Closed';
     this.logger.log(`${action} place: ${place.name}`); 
     this.placeHistoryService.addToHistory(action, place);
@@ -82,11 +83,12 @@ export class PlaceListComponent {
 
   selectPlace(place: Place) {
     this.logger.log(`Clicked on place: ${place.name}`); 
+    this.placeHistoryService.addToHistory("Clicked on place:", place);
 
     if (this.selectedPlace === place) {
       this.toggle(place);
     } else {
-      this.selectedPlace = place;
+      this.router.navigate(['/place', place.id]);
       place.isOpen = true;
     }
   }

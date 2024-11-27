@@ -13,13 +13,5 @@
         </li>
       </ul>
     </div>
-
-    <div class="col-md-8 d-flex flex-column">
-      <div class="sticky-top" style="top: 66px;">
-        <div class="card shadow-lg border-0 rounded-3" [@openClose]="selectedPlace?.isOpen ? 'open' : 'closed'"  style="overflow: hidden;">
-              <app-place-details [place]="selectedPlace"></app-place-details>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
