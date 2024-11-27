@@ -4,6 +4,8 @@ import { PlaceDetailsComponent } from '../place-details/place-details.component'
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 import { routeTransitionAnimations } from '../../animations/route-transition.animation';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LoggerService } from '../services/logger.service';
+import { PlaceHistoryService } from '../services/place-history.service';
 
 export interface Place {
   id: number;
@@ -64,15 +66,23 @@ export class PlaceListComponent {
     { id: 10, name: 'Santorini', location: 'Greece', description: 'A stunning island known for its white-washed buildings and blue-domed churches.', isOpen: false },
   ];
 
+  constructor(
+    private logger: LoggerService,
+    private placeHistoryService: PlaceHistoryService
+  ) {}
+
   selectedPlace?: Place;
 
   toggle(place: Place) {
     place.isOpen = !place.isOpen;
-    console.log(place.isOpen);
+    const action = place.isOpen ? 'Opened' : 'Closed';
+    this.logger.log(`${action} place: ${place.name}`); 
+    this.placeHistoryService.addToHistory(action, place);
   }
 
   selectPlace(place: Place) {
-    console.log('Clicked on place:', place.name);
+    this.logger.log(`Clicked on place: ${place.name}`); 
+
     if (this.selectedPlace === place) {
       this.toggle(place);
     } else {
@@ -81,4 +91,9 @@ export class PlaceListComponent {
     }
   }
 
+  viewHistory(): void {
+    const history = this.placeHistoryService.getHistory();
+    this.logger.log('Action History:');
+    history.forEach((entry) => this.logger.log(entry));
+  }
 }

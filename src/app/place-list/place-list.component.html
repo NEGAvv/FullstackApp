@@ -1,5 +1,7 @@
 <div class="container py-6" @routeTransition>
   <h2 class="text-center mb-5">{{'PLACES.PAGE_TITLE' | translate}}</h2>
+  <button (click)="viewHistory()">View History</button>
+
   <div class="row" style="min-height: 80vh;">
     <div class="col-md-4 d-flex flex-column" style="overflow-y: auto;">
       <ul class="list-group flex-grow-1">
