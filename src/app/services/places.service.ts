@@ -7,7 +7,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class PlacesService {
    private placesSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
    places$: Observable<any[]> = this.placesSubject.asObservable();
- 
+   private pageSize = 5;  
+   private currentPage = 1;
+   
    constructor() {}
  
    loadPlaces() {
@@ -23,6 +25,7 @@ export class PlacesService {
       { id: 9, name: 'Pyramids of Giza', location: 'Giza, Egypt', description: 'Ancient Egyptian pyramids, one of the Seven Wonders of the Ancient World.', isOpen: false },
       { id: 10, name: 'Santorini', location: 'Greece', description: 'A stunning island known for its white-washed buildings and blue-domed churches.', isOpen: false },
     ];
+    
      this.placesSubject.next(places);  
    }
  
@@ -33,4 +36,13 @@ export class PlacesService {
        observer.complete();
      });
    }
+   getPaginatedPlaces(page: number): Observable<any[]> {
+    const places = this.placesSubject.value;
+    const startIndex = (page - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    return new Observable(observer => {
+      observer.next(places.slice(startIndex, endIndex));
+      observer.complete();
+    });
+  }
 }

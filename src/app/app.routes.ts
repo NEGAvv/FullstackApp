@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { Page404Component } from './page404/page404.component';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
+import { TablePlacesComponent } from './table-places/table-places.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: 'contacts', component: ContactComponent },
     { path: 'about', component: AboutComponent },
     { path: 'login', component: LoginFormComponent },
+    { path: 'table', component: TablePlacesComponent },
     { path: '404', component: Page404Component },
     { path: '**', redirectTo: '404' },
 ];
